@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Wonders Bucket List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css">
+    <script src="https://kit.fontawesome.com/0b85282374.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="header">
+        <h1>Recipe Professors</h1>
+        <h3>Beyond Pros.</h3>
+    </div>
+    <div id="search-bar">
+        <h4>Search For Ingredient</h4>
+        <div id="input-button">
+            <input id="user-input" type="text" placeholder="What is the ingrediad">
+            <button id="submit">Get my Recpies!</button>
+        </div>
+        <div id="check-boxs">
+            <label for="dairy-checkbox">Dairy</label>
+            <input type="checkbox" id="dairy-checkbox" name="dairy">
+            <label for="gluten-checkbox">Gluten</label>
+            <input type="checkbox" id="gluten-checkbox" name="gluten">
+        </div>
+    </div>
+    <div id="recipes-container"></div>
+
+    <script id="recipe-template" type="text/x-handlebars-template">
+        <div class="recipe-data">
+        <h5>{{title}}</h5>
+        <div class="pic-play">
+        <img class="picture" src={{picture}}>
+        <div class="play-button-outer" data-video="{{mealId}}">
+            <div class="play-button"></div>
+          </div>
+        </div>
+        <div class="video-player" id="{{mealId}}">
+            <iframe class="recipe-video" src="{{embedUrl}}"></iframe>
+            <i class="fa-solid fa-x close-button"></i>
+        </div>
+        <h6>Ingredients :</h6>
+        <ul>
+            
+            {{#each ingredients}}
+            <ol>-{{this}}</ol>
+            {{/each}}
+        </ul>
+        </div>
+    </script>
+
+
+
+
+
+
+    <script src="./jquery/dist/jquery.js"></script>
+    <script src="./handlebars/dist/handlebars.js"></script>
+    <script src="render.js"></script>
+    <script src="main.js"></script>
+
+
+</body>
+
+</html>
