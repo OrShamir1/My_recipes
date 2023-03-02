@@ -8,6 +8,7 @@ const getRecipes = function() {
 
 $("#submit").on('click', function (){
     getRecipes().then(recpicesData => {
+        $("#user-input").val("")
         const title = recpicesData[0].title
         const picture = recpicesData[0].thumbnail
         const idMeal = recpicesData[0].idMeal

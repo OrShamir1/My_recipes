@@ -27,7 +27,8 @@ h4{
 }
 h3{
     position: relative;
-    /* left: 13em; */
+    display: inline;
+    left: 13em;
     bottom: 1em;
     
 }
