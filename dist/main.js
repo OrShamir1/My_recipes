@@ -8,15 +8,19 @@ const getRecipes = function() {
 
 $("#submit").on('click', function (){
     getRecipes().then(recpicesData => {
+        $("#recipes-container").empty()
         $("#user-input").val("")
-        const title = recpicesData[0].title
-        const picture = recpicesData[0].thumbnail
-        const idMeal = recpicesData[0].idMeal
-        const ingredients = recpicesData[0].ingredients
-        const youtubeUrl = recpicesData[0].href
-        const youtubeVideoId = youtubeUrl.split("=")
-        const embedUrl = `https://www.youtube.com/embed/` + youtubeVideoId[1]
-        renderer.renderRecipe(title, picture, embedUrl, ingredients, idMeal)
+        for(let i = 0; i < 10; i++) {
+            const title = recpicesData[i].title
+            const picture = recpicesData[i].thumbnail
+            const idMeal = recpicesData[i].idMeal
+            const ingredients = recpicesData[i].ingredients
+            const youtubeUrl = recpicesData[i].href
+            const youtubeVideoId = youtubeUrl.split("=")
+            const embedUrl = `https://www.youtube.com/embed/` + youtubeVideoId[1]
+            renderer.renderRecipe(title, picture, embedUrl, ingredients, idMeal)
+        }
+
     })  
 })
 

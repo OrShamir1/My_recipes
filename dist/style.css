@@ -3,7 +3,6 @@ body{
     padding: 0px;
     background-color: #FFFFE8;
     display: grid;
-    grid-template-rows: 7% 2fr 12fr;
     font-family: 'Raleway', sans-serif;
 }
 .recipe-data{
@@ -24,6 +23,7 @@ h4{
     margin: 0px;
     font-family: 'Raleway', sans-serif;
     padding-left: 1em;
+    height: 6em;
 }
 h3{
     position: relative;
