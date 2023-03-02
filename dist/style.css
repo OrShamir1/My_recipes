@@ -5,6 +5,14 @@ body{
     display: grid;
     font-family: 'Raleway', sans-serif;
 }
+#submit{
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 25px;
+    height: 4em;
+    margin-left: 1em;
+    cursor: pointer;
+}
 .recipe-data{
     margin: 2em;
     padding: 1em;
@@ -40,6 +48,7 @@ h3{
 }
 #user-input{
     width: 20em;
+    height: 3em;
 }
 #search-bar{
     position: relative;
