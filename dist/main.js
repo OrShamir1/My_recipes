@@ -20,8 +20,10 @@ $("#submit").on('click', function (){
             const embedUrl = `https://www.youtube.com/embed/` + youtubeVideoId[1]
             renderer.renderRecipe(title, picture, embedUrl, ingredients, idMeal)
         }
-
-    })  
+    }).catch(err => {
+        const serverErrorMassage = err.responseJSON.Error
+        alert(serverErrorMassage)
+    })
 })
 
 $("body").on('click', '.play-button-outer', function () {

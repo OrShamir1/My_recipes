@@ -41,7 +41,7 @@ app.get(`/recipes/:ingredient`, function (req, res) {
     axios.get(`https://recipes-goodness-elevation.herokuapp.com/recipes/ingredient/${ingredient}?`)
         .then((recipes) => {
             if(!recipes.data.results.length) {
-                res.status(404).send({"Error" : `no recepies for ${ingredient}`})
+                res.status(404).send({"Error" : `We don't have any avilable recepies with ${ingredient}`})
                 return
             }
             const recipesList = recipes.data.results;
@@ -51,8 +51,7 @@ app.get(`/recipes/:ingredient`, function (req, res) {
             if(filterParams.gluten == 'true') {
                 findGlutanIngredient(recipesList)
             }
-            res.send(recipesList)
-            
+            res.send(recipesList)  
     })
     
 })
