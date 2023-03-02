@@ -40,6 +40,10 @@ app.get(`/recipes/:ingredient`, function (req, res) {
     const ingredient = req.params.ingredient
     axios.get(`https://recipes-goodness-elevation.herokuapp.com/recipes/ingredient/${ingredient}?`)
         .then((recipes) => {
+            if(!recipes.data.results.length) {
+                res.status(404).send({"Error" : `no recepies for ${ingredient}`})
+                return
+            }
             const recipesList = recipes.data.results;
             if(filterParams.dairy == 'true') {
                 findDairyIngredient(recipesList)
