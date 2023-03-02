@@ -123,8 +123,7 @@ h5{
   
   .play-button-outer:hover .play-button {
     opacity: 1;
-  }
-
+}
 .video-player{
     position: fixed;
     top: 50%;
