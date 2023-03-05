@@ -159,5 +159,17 @@ h5{
     filter: invert(1);
     max-width: 32px;
 }
-
-
+.page-number{
+    display: inline;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+}
+#page-list{
+    display: flex;
+    font-size: xx-large;
+}
+#pages-header{
+    margin-left: 1em;
+    font-weight: bold;
+    font-size: larger;
+}
