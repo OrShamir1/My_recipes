@@ -8,29 +8,40 @@ const getRecipes = function() {
 const createNewPages = function (recpicesData) {
     const numberOfPagesNeeded = (recpicesData.length / 5)
     const pagesNameArray = []
-    for(let i = 0; i < numberOfPagesNeeded; i++) {
+    for(let i = 1; i < numberOfPagesNeeded; i++) {
         pagesNameArray.push(i);
     }
     return pagesNameArray;
 }
 
+const renderNewPage = function(recpicesData, pageNum) {
+    $("#recipes-container").empty()
+    let TopindexToRender = 0;
+    if(pageNum > 0) {
+        TopindexToRender = pageNum * 5;
+    }
+    else if(pageNum == 0) {
+        TopindexToRender = 5; 
+    }
+    for(let i = (TopindexToRender - 5); i < TopindexToRender; i++) {
+        const title = recpicesData[i].title
+        const picture = recpicesData[i].thumbnail
+        const idMeal = recpicesData[i].idMeal
+        const ingredients = recpicesData[i].ingredients
+        const youtubeUrl = recpicesData[i].href
+        const youtubeVideoId = youtubeUrl.split("=")
+        const embedUrl = `https://www.youtube.com/embed/` + youtubeVideoId[1]
+        renderer.renderRecipe(title, picture, embedUrl, ingredients, idMeal)
+    }
+}
+let currentrecipesData = []
 $("#submit").on('click', function (){
     getRecipes().then(recpicesData => {
-        $("#recipes-container").empty()
+        currentrecipesData = recpicesData;
         $("#user-input").val("")
         const numberOfpages = createNewPages(recpicesData)
-        for(let i = 0; i < 5; i++) {
-            const title = recpicesData[i].title
-            const picture = recpicesData[i].thumbnail
-            const idMeal = recpicesData[i].idMeal
-            const ingredients = recpicesData[i].ingredients
-            const youtubeUrl = recpicesData[i].href
-            const youtubeVideoId = youtubeUrl.split("=")
-            const embedUrl = `https://www.youtube.com/embed/` + youtubeVideoId[1]
-            renderer.renderRecipe(title, picture, embedUrl, ingredients, idMeal)
-        }
+        renderNewPage(recpicesData, 1)
         renderer.renderPageCounter(numberOfpages)
-        
     }).catch(err => {
         const serverErrorMassage = err.responseJSON.Error
         alert(serverErrorMassage)
@@ -43,4 +54,10 @@ $("body").on('click', '.play-button-outer', function () {
 })
 $("body").on('click', '.close-button', function () {
     $(".video-player").removeClass("active")
+})
+
+$("body").on('click', ".page-number", function () {
+    const pageNumber = $(this).attr("id");
+    renderNewPage(currentrecipesData, pageNumber)
+
 })
