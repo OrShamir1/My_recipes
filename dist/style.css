@@ -164,6 +164,9 @@ h5{
     cursor: pointer;
     font-family: 'Courier New', Courier, monospace;
 }
+.page-number.active{
+    font-weight: bolder;
+}
 #page-list{
     display: flex;
     font-size: xx-large;

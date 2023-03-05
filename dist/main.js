@@ -32,6 +32,7 @@ const renderNewPage = function (recpicesData, pageNum) {
     }
 }
 
+
 $("#submit").on('click', function () {
     getRecipes().then(recpicesData => {
         currentrecipesData = recpicesData;
@@ -40,6 +41,7 @@ $("#submit").on('click', function () {
         const numberOfPages = numerOfNeededPages(recpicesData)
         renderNewPage(recpicesData, 1)
         renderer.renderPageCounter(numberOfPages)
+        $("#1").addClass("active")
     }).catch(err => {
         const serverErrorMassage = err.responseJSON.Error
         alert(serverErrorMassage)
@@ -55,6 +57,8 @@ $("body").on('click', '.close-button', function () {
 })
 
 $("body").on('click', ".page-number", function () {
+    $(".page-number").removeClass("active")
+    $(this).addClass("active")
     const pageNumber = $(this).attr("id");
     renderNewPage(currentrecipesData, pageNumber)
 })
