@@ -5,12 +5,21 @@ const getRecipes = function() {
     const WantedIngredient = $("input").val()
     return $.get(`recipes/${WantedIngredient}?dairy=${dairyCheckBox}&gluten=${glutenCheckBox}`)       
 }
+const createNewPages = function (recpicesData) {
+    const numberOfPagesNeeded = (recpicesData.length / 5)
+    const pagesNameArray = []
+    for(let i = 0; i < numberOfPagesNeeded; i++) {
+        pagesNameArray.push(i);
+    }
+    return pagesNameArray;
+}
 
 $("#submit").on('click', function (){
     getRecipes().then(recpicesData => {
         $("#recipes-container").empty()
         $("#user-input").val("")
-        for(let i = 0; i < 10; i++) {
+        for(let i = 0; i < 5; i++) {
+            const NumberOfpages = createNewPages(recpicesData)
             const title = recpicesData[i].title
             const picture = recpicesData[i].thumbnail
             const idMeal = recpicesData[i].idMeal
