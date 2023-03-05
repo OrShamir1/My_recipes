@@ -1,11 +1,12 @@
-body{
+body {
     margin: 0px;
     padding: 0px;
     background-color: #FFFFE8;
     display: grid;
     font-family: 'Raleway', sans-serif;
 }
-#submit{
+
+#submit {
     background-color: #000000;
     color: #ffffff;
     border-radius: 25px;
@@ -13,19 +14,22 @@ body{
     margin-left: 1em;
     cursor: pointer;
 }
-.recipe-data{
+
+.recipe-data {
     margin: 2em;
     padding: 1em;
     border-style: solid;
     border-radius: 25px;
     height: 300px;
 }
-h4{
+
+h4 {
     font-size: xx-large;
     margin: 0px;
     margin-top: 10px;
 }
-#header{
+
+#header {
     background-color: #000000;
     color: #FFFFE8;
     margin: 0px;
@@ -33,24 +37,29 @@ h4{
     padding-left: 1em;
     height: 6em;
 }
-h3{
+
+h3 {
     position: relative;
     display: inline;
     left: 13em;
     bottom: 1em;
-    
+
 }
-#input-button{
+
+#input-button {
     padding-top: 1em;
 }
-#check-boxs{
+
+#check-boxs {
     padding-top: 1em;
 }
-#user-input{
+
+#user-input {
     width: 20em;
     height: 3em;
 }
-#search-bar{
+
+#search-bar {
     position: relative;
     padding: 10px;
     padding-bottom: 3em;
@@ -58,42 +67,48 @@ h3{
     display: grid;
     grid-auto-columns: 1fr 1fr 1fr;
     font-family: 'Raleway', sans-serif;
-    
+
 
 }
-.pic-play{
+
+.pic-play {
     position: relative;
     max-width: 300px;
     max-height: 300px;
     display: flex;
     float: left;
 }
-#ingredients-list{
+
+#ingredients-list {
     margin-left: 15em;
     height: 100px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
 }
-h6{
+
+h6 {
     margin: 0px;
     margin-top: 1em;
     margin-left: 13.5em;
     font-size: x-large;
 }
-h5{
+
+h5 {
     display: inline-block;
     margin: 0px;
     margin-left: 5em;
     font-size: xx-large;
 
 }
-.picture{
+
+.picture {
     position: absolute;
     width: 300px;
     height: 300px;
     border-color: black;
 }
+
 .play-button-outer {
     position: relative;
     top: 4em;
@@ -103,34 +118,35 @@ h5{
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.25);
     cursor: pointer;
-  }
-  
-  .play-button {
+}
+
+.play-button {
     margin: 0 auto;
     top: 25%;
-    position: relative;  
+    position: relative;
     width: 0;
     height: 0;
     border-style: solid;
     border-width: 2.5em 0 2.5em 5em;
     border-color: transparent transparent transparent #ffffff;
-    opacity: .75; 
-  }
-  
-  .play-button-outer:hover {
+    opacity: .75;
+}
+
+.play-button-outer:hover {
     background-color: rgba(0, 0, 0, .5);
-  }
-  
-  .play-button-outer:hover .play-button {
+}
+
+.play-button-outer:hover .play-button {
     opacity: 1;
 }
-.video-player{
+
+.video-player {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     z-index: 10000;
-    background: rgba(0,0,0,0.95);
+    background: rgba(0, 0, 0, 0.95);
     width: 100%;
     height: 100%;
     display: flex;
@@ -139,17 +155,20 @@ h5{
     visibility: hidden;
     opacity: 0;
 }
-.video-player.active{
+
+.video-player.active {
     visibility: visible;
     opacity: 1;
 }
-.recipe-video{
+
+.recipe-video {
     position: relative;
     width: 90%;
     height: 90%;
     outline: none;
 }
-.close-button{
+
+.close-button {
     background-color: #ffffff;
     font-size: 50px;
     position: absolute;
@@ -159,19 +178,23 @@ h5{
     filter: invert(1);
     max-width: 32px;
 }
-.page-number{
+
+.page-number {
     display: inline;
     cursor: pointer;
     font-family: 'Courier New', Courier, monospace;
 }
-.page-number.active{
+
+.page-number.active {
     font-weight: bolder;
 }
-#page-list{
+
+#page-list {
     display: flex;
     font-size: xx-large;
 }
-#pages-header{
+
+#pages-header {
     margin-left: 1em;
     font-weight: bold;
     font-size: larger;
