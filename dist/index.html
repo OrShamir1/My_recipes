@@ -33,6 +33,7 @@
         </div>
     </div>
     <div id="recipes-container"></div>
+    <div id="pages-container"></div>
 
     <script id="recipe-template" type="text/x-handlebars-template">
         <div class="recipe-data">
@@ -48,15 +49,21 @@
             <i class="fa-solid fa-x close-button"></i>
         </div>
         <h6>Ingredients :</h6>
-        <ul>
+        <ul id="ingredients-list">
             
             {{#each ingredients}}
             <ol>-{{this}}</ol>
             {{/each}}
-        </ul>
+        </ul> 
         </div>
     </script>
-
+    <script id="pages-counter-template" type="text/x-handlebars-template">
+            <ul id="page-list">
+                {{#each numberOfpages}}
+                <ol>{{this}}</ol>
+                {{/each}}
+            </ul>
+    </script>
 
 
 

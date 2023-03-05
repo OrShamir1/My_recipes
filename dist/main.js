@@ -18,8 +18,8 @@ $("#submit").on('click', function (){
     getRecipes().then(recpicesData => {
         $("#recipes-container").empty()
         $("#user-input").val("")
+        const numberOfpages = createNewPages(recpicesData)
         for(let i = 0; i < 5; i++) {
-            const NumberOfpages = createNewPages(recpicesData)
             const title = recpicesData[i].title
             const picture = recpicesData[i].thumbnail
             const idMeal = recpicesData[i].idMeal
@@ -29,6 +29,8 @@ $("#submit").on('click', function (){
             const embedUrl = `https://www.youtube.com/embed/` + youtubeVideoId[1]
             renderer.renderRecipe(title, picture, embedUrl, ingredients, idMeal)
         }
+        renderer.renderPageCounter(numberOfpages)
+        
     }).catch(err => {
         const serverErrorMassage = err.responseJSON.Error
         alert(serverErrorMassage)
