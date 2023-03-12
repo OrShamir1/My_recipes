@@ -45,6 +45,7 @@ router.get(`/recipes/:ingredient`, function (req, res) {
             if (filterParams.gluten == 'true') {
                 findGlutanIngredient(recipesList)
             }
+            console.log(recipesList);
             res.send(recipesList)
         })
 
